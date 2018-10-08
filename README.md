@@ -3,7 +3,7 @@
 Avalaible with 3 layer neurons: 1 input layer, 1 hidden layer, and 1 output
 
 ## Support
-- Unity Engine (MonoBehaviour) on <a href="https://github.com/ariframadhani/nn-lib/blob/master/example/XOR.cs"> XOR Exmple </a> 
+- Unity Engine (MonoBehaviour) on <a href="https://github.com/ariframadhani/nn-lib/blob/master/example/XOR.cs"> XOR Example </a> 
 
 ## Include
 - Matrix Library (w/ activation function)
