@@ -60,8 +60,8 @@ public class XOR : MonoBehaviour {
     
     /**
      * train the dataset
-     * with "train" method by neuron network, it takes 2 arguments: 
-     * dataset input and dataset target
+     * with "train" method on neuron network library, it takes 2 arguments: 
+     * dataset inputs and dataset targets as an array
      * 
      * */
     void train()
