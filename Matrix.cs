@@ -141,7 +141,7 @@ public class Matrix {
     {
         if (a.column != b.row)
         {
-            Debug.Log("ERPRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
+            Debug.Log("ERROR: Column Matrix A, should be the same size of Row Matrix B");
             return null;
         }
 
