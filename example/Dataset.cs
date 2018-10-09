@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿/**
+* Dataset object
+* geter setter on inputs and targets as an array
+* 
+* */
 
 public class Dataset {
     
@@ -13,7 +15,4 @@ public class Dataset {
     {
         get; set;
     }
-
-
-
 }
