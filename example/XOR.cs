@@ -14,7 +14,7 @@ public class XOR : MonoBehaviour {
         list = new List<Dataset>();
         nn = new NeuronNetwork(2, 4, 1)
         {
-            learning_rate = 0.15f
+            learning_rate = 0.1f
         };
 
         setupDataset();
@@ -111,7 +111,7 @@ public class XOR : MonoBehaviour {
         if (predict1[0] < 0.01)
             Debug.Log("Done");
         else
-            Debug.Log(predict4[0]);
+            Debug.Log(predict1[0]);
 
 
 
