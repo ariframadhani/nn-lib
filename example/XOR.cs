@@ -79,22 +79,25 @@ public class XOR : MonoBehaviour {
         
     }
 
+    /**
+     * test the data with XOR input
+     * */
 
     void data_test()
     {
-        float[] test = new float[2] { 0, 0 };  
+        float[] test1 = new float[2] { 0, 0 };  
         float[] test2 = new float[2] { 0, 1 }; 
         float[] test3 = new float[2] { 1, 0 }; 
         float[] test4 = new float[2] { 1, 1 };
 
-        float[] predict = nn.predict(test);
+        float[] predict1 = nn.predict(test1);
         float[] predict2 = nn.predict(test2);
         float[] predict3 = nn.predict(test3);
         float[] predict4 = nn.predict(test4);
 
         Debug.Log("output data test");
 
-        Debug.Log(predict[0]); // output should be 0 ( false )
+        Debug.Log(predict1[0]); // output should be 0 ( false )
         Debug.Log(predict2[0]); // output should be 1 ( true )
         Debug.Log(predict3[0]); // output should be 1 ( true )
         Debug.Log(predict4[0]); // output should be 0 ( false )
