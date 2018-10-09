@@ -100,9 +100,9 @@ public class XOR : MonoBehaviour {
         //Debug.Log(predict3[0]);  // output should be 1 ( true )
         //Debug.Log(predict4[0]);  // output should be 0 ( false )
 
-        
+
         /**
-         * NOTE: if the output data got stucked beetwen 4 and 5 for a long time, restart train data
+         * NOTE: if the output data got stuck beetwen 4 and 5 for a long time, restart train data
          * 
          * cause: random weight input wasn't good enaugh to train
          * */
