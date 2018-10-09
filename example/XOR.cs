@@ -104,7 +104,7 @@ public class XOR : MonoBehaviour {
         /**
          * NOTE: if the output data got stuck beetwen 4 and 5 for a long time, restart train data
          * 
-         * cause: random weight input wasn't good enaugh to train
+         * cause: random weight input wasn't good.
          * */
 
         // if predict output[0] is less then 0.01 / false, then done
