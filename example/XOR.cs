@@ -75,7 +75,7 @@ public class XOR : MonoBehaviour {
         }
 
         // counting how much time untill it get the best training result.
-        trainTime += Time.time;
+        trainTime += (int)Time.time;
         
     }
 
