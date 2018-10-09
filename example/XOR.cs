@@ -8,7 +8,6 @@ public class XOR : MonoBehaviour {
     Dataset data1, data2, data3, data4;
     List<Dataset> list;
     float[] inputs, targets, test;
-    int trainTime = 0;
 
     // Use this for initialization
     void Start() {
@@ -19,6 +18,7 @@ public class XOR : MonoBehaviour {
         };
 
         setupDataset();
+        
     }
 
     /**
@@ -74,9 +74,7 @@ public class XOR : MonoBehaviour {
             }
         }
 
-        // counting how much time untill it get the best training result.
-        trainTime += (int)Time.time;
-        
+        data_test();
     }
 
     /**
@@ -97,10 +95,25 @@ public class XOR : MonoBehaviour {
 
         Debug.Log("output data test");
 
-        Debug.Log(predict1[0]); // output should be 0 ( false )
-        Debug.Log(predict2[0]); // output should be 1 ( true )
-        Debug.Log(predict3[0]); // output should be 1 ( true )
-        Debug.Log(predict4[0]); // output should be 0 ( false )
+        //Debug.Log(predict1[0]); // output should be 0 ( false )
+        //Debug.Log(predict2[0]);  // output should be 1 ( true )
+        //Debug.Log(predict3[0]);  // output should be 1 ( true )
+        //Debug.Log(predict4[0]);  // output should be 0 ( false )
+
+        
+        /**
+         * NOTE: if the output data got stucked beetwen 4 and 5 for a long time, restart train data
+         * 
+         * cause: random weight input wasn't good enaugh to train
+         * */
+
+        // if predict output[0] is less then 0.01 / false, then done
+        if (predict1[0] < 0.01)
+            Debug.Log("Done");
+        else
+            Debug.Log(predict4[0]);
+
+
 
     }
 
@@ -110,9 +123,6 @@ public class XOR : MonoBehaviour {
     {
         // run the "train" method, to train the datasets
         train();
-
-        // testing data with output
-        data_test();
     }
 }
  

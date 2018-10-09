@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Matrix {
 
@@ -14,20 +14,7 @@ public class Matrix {
         column = initColumn;
         matrix = new float[row, column];
     }
-
-    float sigmoid(float x)
-    {
-        float sigm = 1 / (1 + Mathf.Exp(-x));
-
-        return sigm;
-    }
-
-    // gradient error = derivative of the activation function (sigmoid)
-    float dsigmoid(float y)
-    {   
-        return sigmoid(y) * ( 1 - sigmoid(y) );
-    }  
-
+    
     public void SetMatrixElement(float number)
     {
         for (int i = 0; i < row; i++)
@@ -49,7 +36,6 @@ public class Matrix {
         }
         return result.ToArray();
     }
-
     
     public void Randomize()
     {
@@ -57,7 +43,7 @@ public class Matrix {
         {
             for (int j = 0; j < column; j++)
             {
-                matrix[i, j] = Random.Range(0f, 2f);
+                matrix[i, j] = UnityEngine.Random.Range(0f, 2f);
             }
         }
     }
@@ -77,18 +63,7 @@ public class Matrix {
     {
         Debug.Log("Row " + row + " column = " + column);
     }
-
-    public void PrintActivation()
-    {
-        for (int i = 0; i < row; i++)
-        {
-            for (int j = 0; j < column; j++)
-            {
-                Debug.Log("Activation / Output ke - " + i + " = " + matrix[i, j]);
-            }
-        }
-    }
-
+    
     public void PrintOnlyRow()
     {
         for (int i = 0; i < row; i++)
@@ -190,38 +165,39 @@ public class Matrix {
         }
         return forArr;
     }
-
-    public static Matrix Derivative(Matrix a)
+    
+    /**
+     * 
+     * static map function (return any value that return from funtion on param, on 2nd argument)
+     * return new matrix with map value
+     * 
+     * */
+    public static Matrix Map(Matrix a, Func<float, float> Func)
     {
         Matrix result = new Matrix(a.row, a.column);
-        
+
         for (int i = 0; i < result.row; i++)
         {
             for (int j = 0; j < result.column; j++)
             {
-                result.matrix[i, j] = a.dsigmoid(a.matrix[i, j]);
+                result.matrix[i, j] = Func(a.matrix[i, j]);
             }
         }
-
         return result;
     }
 
-    /**
-     * activation function (map value beetwen 0 - 1)
-     * @return Matrix;
-     * 
-     * */
-    public Matrix Activation()
+    public Matrix Map(Func<float, float> Func)
     {
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < column; j++)
             {
-                matrix[i, j] = sigmoid(matrix[i, j]);
+                matrix[i, j] =  Func(matrix[i, j]);
             }
         }
         return this;
     }
+    
 
     public Matrix Add(Matrix b)
     {
